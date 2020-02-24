@@ -1,0 +1,17 @@
+
+  p{color: #aaa}
+  p.ex {display: inline;}
+  a{color: #EA1C24;}
+  h1{color: #EA1C24;}
+  #sidebar ul li a {
+    
+    color: #ffffff !important;
+   
+}
+#sidebar ul li a:hover {
+    
+    color: #EA1C24 !important;
+   
+}
+
+
