@@ -1,0 +1,102 @@
+
+
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+
+ 
+    <div  ng-app="myApp" ng-controller="formCtrl" class="col">
+        <form novalidate  class="contactForm">
+          <div id="errormessage"></div>
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <div class="form-group">
+                <input type="text" class="form-control" ng-model="user.displayname" name="displayname" id="displayname" placeholder="Display name" required />
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="col-md-12 mb-3">
+              <div class="form-group">
+                <input type="email" class="form-control" ng-model="user.email" name="email" id="email" placeholder="E-mail" required />
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="col-md-12 mb-3">
+              <div class="form-group">
+                <input type="tel" class="form-control" ng-model="user.phone" name="phone" id="phone" placeholder="Mobile phone" required />
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="col-md-12 mb-3">
+              <div class="form-group">
+                <select name="university" ng-model="user.university" id="university" class="form-control" required>
+                  <option disable selected>- โปรดเลือกสถานศึกษาของคุณ -</option>
+                  <option>สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</option>
+                  <option>มหาวิทยาลัยเชียงใหม่</option>
+                  <option>มหาวิทยาลัยมหิดล</option>
+                  <option>มหาวิทยาลัยธรรมศาสตร์</option>
+                  <option>มหาวิทยาลัยศรีนครินทรวิโรฒ</option>
+                  <option>มหาวิทยาลัยเทคโนโลยีมหานคร</option>
+                  <option>มหาวิทยาลัยเกษตรศาสตร์</option>
+                  <option>จุฬาลงกรณ์มหาวิทยาลัย</option>
+                  <option>มหาวิทยาลัยขอนแก่น</option>
+                  <option>มหาวิทยาลัยอัสสัมชัญ</option>
+
+                </select>
+                <div class="validation"></div>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+              <div style="margin-right: 50px" class="col-md-12 mb-3">
+                <input type="checkbox" ng-model="user.graduated" class="form-check-input" name="graduated" id="dropdownCheck">
+                <label class="form-check-label" for="dropdownCheck">
+                  Graduated
+                </label>
+              </div>
+            </div>
+
+            <div class="col-md-12 mb-3">
+              <div class="form-group">
+                <input type="password" class="form-control" ng-model="user.password" name="password" id="password" placeholder="Password" required />
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="col-md-12 mb-3">
+              <div class="form-group">
+                <input type="password" class="form-control" ng-model="user.confirmpassword" name="confirmpassword" id="confirmpassword" placeholder="Confirm password" required />
+                <div class="validation"></div>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <button ng-click="signup()" style="background-color: #EB232A" id="signup" class="button button-a btn-lg w-100">Sign up</button>
+
+            </div>
+          </div>
+
+          <div class="col-md-12 mb-3">
+              <p style="color: #EA1C24;"> </br> </p>
+          </div>
+      </div>
+ <script>
+        var app = angular.module('myApp', []);
+        app.controller('formCtrl', function($scope, $http) {
+            $http({ 
+ method: 'POST',
+ url: '/api/signup_test',
+ headers: {
+   'Content-Type':'application/json'
+ },
+ data: { test: 'zzzzz' }
+})
+    .then(function(response) {
+     // $scope.user = response.data;
+    });
+          $http.get("signups")
+          .then(function(response) {
+            $scope.myWelcome = response.data;
+          });
+        });
+        </script>

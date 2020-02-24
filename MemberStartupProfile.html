@@ -1,0 +1,276 @@
+
+<link href="assets/img/favicon.png" rel="icon">
+<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+<!-- Bootstrap CSS File -->
+<link href="assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Libraries CSS Files -->
+<link href="assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="assets/lib/animate/animate.min.css" rel="stylesheet">
+<link href="assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+<link href="assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+<link href="assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+<!-- Main Stylesheet File -->
+<link href="assets/css/style-red.css" rel="stylesheet">
+
+<style>
+  p {
+    color: #000000
+  }
+
+  p.ex {
+    display: inline;
+  }
+
+  a {
+    color: #EA1C24;
+  }
+
+  h1 {
+    color: #EA1C24;
+  }
+</style>
+
+  
+<body id="page-top">
+  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top " id="mainNav" style="background-color: #000000;">
+    <div class="container">
+        <a class="navbar-brand js-scroll" href="/"><img height="30px" src="https://www.trueincube.com/assets/images/incube-logo.png"></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+          aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+    
+      </div>
+    </nav>
+    
+  <h1 style="margin-top:170px; margin-bottom: 60px; text-align: center;" class=""> STARTUP </h1>
+  <div class="intro route bg-image" style="background-image: url(#fff)">
+    <!-- <div class="overlay-itro"></div> -->
+    <div class="intro-content display-table">
+      <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+
+        <div  class="container">
+
+          <div class="row">
+            <div class="col"></div>
+            <div ng-app="myApp" ng-controller="formCtrl" class="col">
+              <form novalidate   class="contactForm">
+                <div id="errormessage"></div>
+                <div class="row">
+
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <img style="border-radius: 50%;" height="200px" src="" ng-src="{{logo}}" alt="logo">
+                      <div class="validation"></div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                      <div class="form-group">
+                        <input type="file" file-model = "user.inputimage" class="form-control-file" name="imagelogo" id="imagelogo" />
+                        <div class="validation"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <input type="text" class="form-control"  ng-model="user.startupname" name="startupname" id="startupname" placeholder="Startup name" value="" required />
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <input type="position" class="form-control" ng-model="user.position" name="position" id="position" value="Position" placeholder="" required />
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <select id="inputState" data-ng-model="user.servicecategory" class="form-control" name="servicecategory" required>
+                        <option ng-option value="" >Product Category</option>
+                        <option  ng-option  value="">Product Category</option>
+                        <option ng-option  value="AI / Big Data / Machine Learning">AI / Big Data / Machine Learning</option>
+                        <option ng-option  value="Agriculture Tech/Food Tech">Agriculture Tech/Food Tech</option>
+                        <option ng-option  value="IoT &amp; Robotics">IoT &amp; Robotics</option>
+                        <option ng-option  value="Advertising &amp; Media Tech">Advertising &amp; Media Tech</option>
+                        <option ng-option  value="Logistics">Logistics</option>
+                        <option ng-option  value="Medical">Medical</option>
+                        <option ng-option  value="Fin Tech">Fin Tech</option>
+                        <option ng-option  value="Energy Tech">Energy Tech</option>
+
+                      </select>
+                      <div class="validation"></div>
+                    </div>
+
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <select data-ng-model="user.targetcustomer" id="inputState" class="form-control" name="targetcustomer" required>
+                        <option ng-option value="" >Targetcustomer </option>
+                        <option ng-option value="Targetcustomer">Targetcustomer</option>
+ 
+
+                      </select>
+                      <div class="validation"></div>
+                    </div>
+
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <select id="fundingstage" data-ng-model="user.fundingstage" class="form-control" name="fundingstage" required>
+                        <option ng-option value="">Fundingstage</option>
+                        <option ng-option value="">Funding Stage *</option>
+                        <option ng-option value="Pre-Seed (Less than 3 Million THB)">Pre-Seed (Less than 3 Million THB)</option>
+                        <option ng-option value="Seed (3 Million THB)">Seed (3 Million THB)</option>
+                        <option ng-option value="Pre Series A (3 Million - 30 Million THB">Pre Series A (3 Million - 30 Million THB</option>
+                        <option ng-option value="Series A (30 Million THB)">Series A (30 Million THB)</option>
+                        <option ng-option value="Above Series A (More than 30 Million THB)">Above Series A (More than 30 Million THB)</option>
+
+                      </select>
+                      <div class="validation"></div>
+                    </div>
+
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <input class="form-control" ng-model="user.documentlink" name="documentlink" value="" id="documentlink" placeholder="Document link" required />
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <input class="form-control" ng-model="user.videolink" name="videolink" id="videolink" value="" placeholder="Video link / other social media" required />
+                      <div class="validation"></div>
+                    </div></br>
+                  </div>
+
+                  <div class="col">
+                    <button ng-click="save()" style="background-color: #EB232A" class="button button-a btn-lg w-100">Save</button>
+                  </div>
+
+
+                </div>
+
+              </form>
+              
+            </div>
+            <div class="col">
+              <div class="col ">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <div id="preloader"></div>
+ <!-- JavaScript Libraries -->
+<script src="assets/lib/jquery/jquery.min.js"></script>
+<script src="assets/lib/jquery/jquery-migrate.min.js"></script>
+<script src="assets/lib/popper/popper.min.js"></script>
+<script src="assets/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/lib/easing/easing.min.js"></script>
+<script src="assets/lib/counterup/jquery.waypoints.min.js"></script>
+<script src="assets/lib/counterup/jquery.counterup.js"></script>
+<script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="assets/lib/lightbox/js/lightbox.min.js"></script>
+<script src="assets/lib/typed/typed.min.js"></script>
+<!-- Contact Form JavaScript File -->
+
+
+<!-- Template Main Javascript File -->
+<script src="assets/js/main.js"></script>
+<script>
+  var app = angular.module('myApp', []);
+
+  app.directive('fileModel', ['$parse', function ($parse) {
+            return {
+               restrict: 'A',
+               link: function(scope, element, attrs) {
+                  var model = $parse(attrs.fileModel);
+                  var modelSetter = model.assign;
+                  
+                  element.bind('change', function() {
+                     scope.$apply(function() {
+                        modelSetter(scope, element[0].files[0]);
+                     });
+                  });
+               }
+            };
+         }]);
+
+  app.controller('formCtrl', function($scope, $http) {
+    $scope.logo = "images/M-placeholder-illustrations-vector2.jpg"
+    $scope.user = {}
+    $http({ 
+ method: 'GET',
+ url: '/api/get_member_startup_email',
+ 
+
+})
+    .then(function(req) {
+     // console.log(req.data);
+
+     console.log(req.data.avatar);
+      $scope.logo = req.data.logo
+       $scope.user.position= req.data.position
+       $scope.user.servicecategory= req.data.service_category
+       $scope.user.startupname= req.data.startup_name
+       $scope.user.targetcustomer= req.data.target_customer
+       $scope.user.fundingstage= req.data.funding_stage
+       $scope.user.documentlink= req.data.document_link
+       $scope.user.videolink= req.data.vdo_link
+       
+    });
+   
+
+  $scope.save = function() {  
+ //alert($scope.user.displayname);
+ var file = $scope.user.inputimage;
+ console.log(file)
+               var fd = new FormData();
+               fd.append('file_logo', file);
+               fd.append('position', $scope.user.position);
+               fd.append('service_category', $scope.user.servicecategory);
+               fd.append('startup_name', $scope.user.startupname);
+               fd.append('target_customer', $scope.user.targetcustomer);
+               fd.append('funding_stage', $scope.user.fundingstage);
+               fd.append('document_link', $scope.user.documentlink);
+               fd.append('vdo_link', $scope.user.videolink);
+
+ $http({ 
+ method: 'POST',
+ url: '/api/member_startup_UPDATE',
+ headers: {
+  'Content-Type':undefined
+ },
+ transformRequest: angular.identity,
+ data:fd
+ 
+})
+.then(function(response) {
+     // $scope.user.msg = response.data.data;
+
+    if (response.data.data == "ลงทะเบียนสำเร็จ"){
+        
+        location.href = '/memberboard'
+      }
+
+    });
+
+}  
+
+});
+   
+  </script>
+
+</body>

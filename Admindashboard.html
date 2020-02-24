@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title> Admin dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/custom_style.css">
+  
+  
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.2/ui-bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.2/ui-bootstrap-tpls.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.7/angular-material.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/3.1.1/ui-grid.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/3.1.1/ui-grid.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.7/angular-material.min.css" />
+    <link data-require="bootstrap-css@*" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+
+
+
+
+
+</head>
+
+
+  <body ng-app="uigridApp">
+  
+
+
+
+  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top " id="mainNav" style="background-color: #000000;">
+    <div class="container">
+        <a class="navbar-brand js-scroll" href="index"><img height="30px" src="https://www.trueincube.com/assets/images/incube-logo.png"></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+          aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
+          <ul class="navbar-nav">
+    
+            <li class="nav-item">
+              <a  class="nav-link js-scroll " href="#"> <img height="30px" src="include/envelope.png."></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll" href="#"><img style="border-radius: 50%;" height="30px" width="30px" src="" alt="Avatar"></a>
+            </li>
+            <div class="dropdown">
+      <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      
+    </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="MemberProfile">Proflie</a>
+        <a class="dropdown-item" href="changePassword">Change password</a>
+        <a class="dropdown-item" href="detroy">Logout</a>
+      </div>
+    </div>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="wrapper d-flex align-items-stretch">
+      <nav style="margin-top: -22px" id="sidebar">
+        <div class="p-4 pt-5">
+  
+          <ul class="list-unstyled components mb-5">
+  
+  
+            <li>
+              <a href="#">Dashboard</a>
+            </li>
+  
+            <li>
+              <a href="#">Startup</a>
+            </li>
+  
+            <li>
+              <a href="#">Company</a>
+            </li>
+  
+            <li>
+              <a href="#">Terms</a>
+            </li>
+  
+  
+          </ul>
+  
+  
+  
+  
+        </div>
+      </nav>
+  <div class="container">
+  
+
+  
+    <div class="col-sm-12">
+    
+    </div>
+
+    <div ng-controller="uigridCtrl">
+    
+      <div ui-grid="gridOptions"ui-grid-pagination class="myGrid"></div>
+      </div>
+  
+      </div>
+   
+ 
+  
+  
+  
+  
+<script type="text/javascript">
+var app = angular.module("uigridApp", ["ui.grid", 'ui.grid.selection', 'ui.bootstrap',"ui.grid.pagination"]);
+app.controller("uigridCtrl", function ($scope,$http, $templateCache) {
+
+  
+  $templateCache.put('ui-grid/date-cell',
+      "<div class='ui-grid-cell-contents'>{{COL_FIELD | date:'dd-MM-yyyy'}}</div>"
+  );
+
+  // Custom template using Bootstrap DatePickerPopup
+  // Custom template using Bootstrap DatePickerPopup
+  $templateCache.put('ui-grid/ui-grid-date-filter',
+      "<div class=\"ui-grid-filter-container\" ng-repeat=\"colFilter in col.filters\" >" + 
+          "<input type=\"text\" uib-datepicker-popup=\"{{datePicker.format}}\" " + 
+                  "datepicker-options=\"datePicker.options\" " + 
+                  "datepicker-append-to-body=\"true\" show-button-bar=\"false\"" +
+                  "is-open=\"showDatePopup[$index].opened\" class=\"ui-grid-filter-input ui-grid-filter-input-{{$index}}\"" + 
+                  "style=\"font-size:1em; width:11em!important\" ng-model=\"colFilter.term\" ng-attr-placeholder=\"{{colFilter.placeholder || ''}}\" " + 
+                  " aria-label=\"{{colFilter.ariaLabel || aria.defaultFilterLabel}}\" />" +
+
+              "<span style=\"padding-left:0.3em;\"><button type=\"button\" class=\"btn btn-default btn-sm\" ng-click=\"showDatePopup[$index].opened = true\">" +
+                  "<i class=\"glyphicon glyphicon-calendar\"></i></button></span>" +
+
+              "<div role=\"button\" class=\"ui-grid-filter-button\" ng-click=\"removeFilter(colFilter, $index)\" ng-if=\"!colFilter.disableCancelFilterButton\" ng-disabled=\"colFilter.term === undefined || colFilter.term === null || colFilter.term === ''\" ng-show=\"colFilter.term !== undefined && colFilter.term !== null && colFilter.term !== ''\">" +
+                  "<i class=\"ui-grid-icon-cancel\" ui-grid-one-bind-aria-label=\"aria.removeFilter\">&nbsp;</i></div></div><div ng-if=\"colFilter.type === 'select'\"><select class=\"ui-grid-filter-select ui-grid-filter-input-{{$index}}\" ng-model=\"colFilter.term\" ng-attr-placeholder=\"{{colFilter.placeholder || aria.defaultFilterLabel}}\" aria-label=\"{{colFilter.ariaLabel || ''}}\" ng-options=\"option.value as option.label for option in colFilter.selectOptions\"><option value=\"\"></option></select><div role=\"button\" class=\"ui-grid-filter-button-select\" ng-click=\"removeFilter(colFilter, $index)\" ng-if=\"!colFilter.disableCancelFilterButton\" ng-disabled=\"colFilter.term === undefined || colFilter.term === null || colFilter.term === ''\" ng-show=\"colFilter.term !== undefined && colFilter.term != null\"><i class=\"ui-grid-icon-cancel\" ui-grid-one-bind-aria-label=\"aria.removeFilter\">&nbsp;</i></div></div>"
+  );
+  $scope.highlightFilteredHeader = function( row, rowRenderIndex, col, colRenderIndex ) {
+
+if( col.filters[0].term ){
+
+  return 'header-filtered';
+} else {
+  return '';
+}
+};  
+$scope.gridOptions = {
+paginationPageSizes: [20, 50, 75],
+paginationPageSize: 20,
+enableFiltering: true,
+
+
+columnDefs: [
+
+{   field: 'disname',displayName:'name'}, //name
+{ field: 'fname',displayName:'surname' }, //surname
+{ field: 'email',displayName:'email' }, //email
+{ field: 'phone_num',displayName:'phone no.' }, //phone no
+{ field: 'university' ,displayName:'univarsity' }, //univarsity
+
+   {field: 'date_register', name: 'regiter date', cellTooltip: true,
+        cellFilter: 'date:\'dd-MM-yyyy\'',
+        cellTemplate: 'ui-grid/date-cell',
+        filterHeaderTemplate: 'ui-grid/ui-grid-date-filter',
+        width: '40%',
+        filters: [
+            {
+              condition: function(term, value, row, column){
+                    if (!term) return true;
+                    var valueDate = new Date(value);
+                    return valueDate >= term;
+                },
+              placeholder: 'Form'
+            },
+            {
+              condition: function(term, value, row, column){
+                    if (!term) return true;
+                    var valueDate = new Date(value);
+                    return valueDate <= term;
+                },
+              placeholder: 'to'
+            }
+        ],
+        headerCellClass: $scope.highlightFilteredHeader },
+
+//{ field: 'date_register',displayName:'regiter date' }, //regiter date
+
+{ field: 'complete',displayName:'complete %' } //complete %
+
+],
+
+onRegisterApi: function (gridApi) {
+
+$scope.grid1Api = gridApi;
+
+}
+
+};
+
+
+
+$http.get('/api/data_admin')
+    .then(function (response) {
+       $scope.gridOptions.data = response.data;  
+       console.log($scope.gridOptions.data);
+    },
+    
+    function (error) {
+        console.log(error);
+    });
+
+//$scope.gridOptions.data = $scope.users;
+});
+
+
+ 
+</script>
+
+</body>
+</html>

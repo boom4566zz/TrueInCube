@@ -1,0 +1,380 @@
+
+
+<link href="assets/img/favicon.png" rel="icon">
+<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+<!-- Bootstrap CSS File -->
+<link href="assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Libraries CSS Files -->
+<link href="assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="assets/lib/animate/animate.min.css" rel="stylesheet">
+<link href="assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+<link href="assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+<link href="assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+<!-- Main Stylesheet File -->
+<link href="assets/css/style-red.css" rel="stylesheet">
+
+<style>
+  p {
+    color: #aaa
+  }
+
+  p.ex {
+    display: inline;
+  }
+
+  a {
+    color: #EA1C24;
+  }
+
+  h1 {
+    color: #EA1C24;
+  }
+
+  .chackboxmargin {
+    margin-left: -20px
+  }
+</style>
+
+<body id="page-top">
+  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top " id="mainNav" style="background-color: #000000;">
+    <div class="container">
+        <a class="navbar-brand js-scroll" href="/"><img height="30px" src="https://www.trueincube.com/assets/images/incube-logo.png"></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+          aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+    
+      </div>
+    </nav>
+    
+  <h1 style="margin-top:170px; margin-bottom: 60px; text-align: center;" class=""> PROFILE </h1>
+  <div class="intro route bg-image" style="background-image: url(#fff)">
+    <!-- <div class="overlay-itro"></div> -->
+    <div class="intro-content display-table">
+      <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+
+        <div class="container">
+
+          <div class="row">
+            <div class="col"></div>
+            <div ng-app="myApp" ng-controller="formCtrl" class="col">
+              <form   novalidate   class="contactForm">
+                <div id="errormessage"></div>
+                <div class="row">
+
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <img style="border-radius: 50%;" height="200px" ng-src="{{avatar}}" alt="Avatar">
+                      <div class="validation"></div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                      <div class="form-group">
+                        <input type="file" file-model = "user.inputimage" class="form-control-file" name="inputimage" id="inputimage" />
+                        <div class="validation"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <input type="text" class="form-control" ng-model="user.displayname" name="displayname" id="displayname" value="" placeholder="Display name" required />
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+
+                  <div class="col col-lg-3">
+                    <p style="color: black">Education</p>
+                  </div>
+
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <select id="university" data-ng-model="user.university" class="form-control" name="university" required>
+                        <option ng-option value="" > -- กรุณาเลือกสถาบันการศึกษา -- </option>
+                        <option ng-option value="สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง">สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</option>
+                        <option ng-option value="มหาวิทยาลัยเชียงใหม่">มหาวิทยาลัยเชียงใหม่</option>
+                        <option ng-option value="มหาวิทยาลัยมหิดล">มหาวิทยาลัยมหิดล</option>
+                        <option ng-option value="มหาวิทยาลัยธรรมศาสตร์">มหาวิทยาลัยธรรมศาสตร์</option>
+                        <option ng-option value="มหาวิทยาลัยศรีนครินทรวิโรฒ">มหาวิทยาลัยศรีนครินทรวิโรฒ</option>
+                        <option ng-option value="มหาวิทยาลัยเทคโนโลยีมหานคร">มหาวิทยาลัยเทคโนโลยีมหานคร</option>
+                        <option ng-option value="มหาวิทยาลัยเกษตรศาสตร์">มหาวิทยาลัยเกษตรศาสตร์</option>
+                        <option ng-option value="จุฬาลงกรณ์มหาวิทยาลัย">จุฬาลงกรณ์มหาวิทยาลัย</option>
+                        <option ng-option value="มหาวิทยาลัยขอนแก่น">มหาวิทยาลัยขอนแก่น</option>
+                        <option ng-option value="มหาวิทยาลัยอัสสัมชัญ">มหาวิทยาลัยอัสสัมชัญ</option>
+
+                      </select>
+                      <div class="validation"></div>
+                    </div>
+
+                    <div class="col-lg-2">
+
+                      <div class="form-check ">
+                        <input class="form-check-input chackboxmargin" ng-model="user.Graduated" type="checkbox" id="Graduated">
+                        <label style="color: 606060 " class="form-check-label">
+                          Graduated
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <input type="text" class="form-control" ng-model="user.otheruniversity" name="otheruniversity" id="otheruniversity" placeholder="Other university" />
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <input class="form-control" ng-model="user.faculty" name="faculty" id="faculty" value="" placeholder="Faculty" required />
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <input class="form-control"ng-model="user.graduatelevel" name="graduate" id="graduate" value="" placeholder="Graduate level" required />
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+
+                  <div class="col col-lg-3">
+                    <p style="color: black">Information</p>
+                  </div>
+
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <input class="form-control" ng-model="user.citizenid" name="citizenid" id="citizenid" value="" placeholder="Citizen ID (ระบุเลขบัตรประจำตัวประชาชน)" required />
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <input class="form-control" ng-model="user.firstname" name="firstname" id="firstname" value="" placeholder="First name" required />
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <input class="form-control" ng-model="user.lastname" name="lastname" id="lastname" value="" placeholder="Last name" required />
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <input type="email"  ng-model="user.email" class="form-control" name="email" id="email" value="" placeholder="E-mail" readonly />
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <input class="form-control" ng-model="user.phonenumber" name="phonenumber" id="phonenumber" value="" placeholder="Mobile Phone Number" required />
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <select id="title" class="form-control" ng-model="user.title" ng-dropdown name="title" required>
+                        <option ng-option value="">Title</option>
+                        <option ng-option value="1">นาย</option>
+                        <option ng-option value="2">นาง</option>
+                        <option ng-option value="3">นางสาว</option>
+                      </select>
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      
+                      <input type="date" class="form-control"  placeholder="yyyy-MM-dd"  ng-model="user.birthday" name="birthday" id="birthday" value=""  required />
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+
+                      <select id="sex" class="form-control" ng-dropdown ng-model="user.sex" name="sex" required>
+                        <option ng-option value="">Gender</option>
+                        <option ng-option value="1">ชาย</option>
+                        <option ng-option value="2">หญิง</option>
+                      </select>
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+
+                  <div class="col col-lg-3">
+                    <p style="color: black">Experience</p>
+                  </div>
+
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <textarea class="form-control" ng-model="user.experience" name="experience" id="experience" rows="8" value="" placeholder="Work Experience"></textarea>
+                    </div>
+                  </div>
+
+                  <div class="col col-lg-3">
+                    <p style="color: black">TrueLAB</p>
+                  </div>
+
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <input class="form-control" name="truelab" ng-model="user.truelab" id="truelab" value="" placeholder="TrueLAB Menbership" required />
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+
+                  <div class="col">
+                    <button ng-click="save()" style="background-color: #EB232A" class="button button-a btn-lg w-100">Save</button>
+                  </div>
+
+
+
+                </div>
+              </form>
+
+            </div>
+            <div class="col">
+              <div class="col ">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <div id="preloader"></div>
+  <!-- JavaScript Libraries -->
+<script src="assets/lib/jquery/jquery.min.js"></script>
+<script src="assets/lib/jquery/jquery-migrate.min.js"></script>
+<script src="assets/lib/popper/popper.min.js"></script>
+<script src="assets/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/lib/easing/easing.min.js"></script>
+<script src="assets/lib/counterup/jquery.waypoints.min.js"></script>
+<script src="assets/lib/counterup/jquery.counterup.js"></script>
+<script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="assets/lib/lightbox/js/lightbox.min.js"></script>
+<script src="assets/lib/typed/typed.min.js"></script>
+<!-- Contact Form JavaScript File 
+<script src="assets/contactform/contactform.js"></script>-->
+
+<!-- Template Main Javascript File -->
+<script src="assets/js/main.js"></script>
+
+<script>
+  var app = angular.module('myApp', []);
+
+  app.directive('fileModel', ['$parse', function ($parse) {
+            return {
+               restrict: 'A',
+               link: function(scope, element, attrs) {
+                  var model = $parse(attrs.fileModel);
+                  var modelSetter = model.assign;
+                  
+                  element.bind('change', function() {
+                     scope.$apply(function() {
+                        modelSetter(scope, element[0].files[0]);
+                     });
+                  });
+               }
+            };
+         }]);
+
+  app.controller('formCtrl', function($scope, $http) {
+    $scope.avatar = "images/M-placeholder-illustrations-vector2.jpg"
+    $scope.user = {}
+    $http({ 
+ method: 'GET',
+ url: '/api/get_MemberProfile_email',
+ 
+
+})
+    .then(function(req) {
+      
+
+     console.log(req.data.avatar);
+     $scope.avatar = req.data.avatar
+       $scope.user.email= req.data.email
+       $scope.user.displayname= req.data.disname
+       $scope.user.phonenumber= req.data.phone_num
+       $scope.user.graduatelevel=  req.data.grad_level
+       $scope.user.faculty=  req.data.faculty
+       $scope.user.citizenid=  req.data.citizen_id
+       $scope.user.title=  req.data.title
+       $scope.user.firstname=  req.data.fname
+       $scope.user.lastname=  req.data.lname
+       $scope.user.birthday= new Date(req.data.birthday)
+       $scope.user.sex=  req.data.sex
+       $scope.user.experience=  req.data.work_exp
+       $scope.user.truelab=  req.data.truelap
+       $scope.user.university=  req.data.university
+       
+       
+    });
+   
+
+  $scope.save = function() {  
+ //alert($scope.user.displayname);
+ var file = $scope.user.inputimage;
+console.log(file)
+               var fd = new FormData();
+               fd.append('file_avater', file);
+               fd.append('disname', $scope.user.displayname);
+               fd.append('university', $scope.user.university);
+               fd.append('Graduated', $scope.user.Graduated);
+               fd.append('otheruniversity', $scope.user.otheruniversity);
+               fd.append('faculty', $scope.user.faculty);
+               fd.append('graduatelevel', $scope.user.graduatelevel);
+               fd.append('citizenid', $scope.user.citizenid);
+               fd.append('firstname', $scope.user.firstname);
+               fd.append('lastname', $scope.user.lastname);
+               fd.append('email', $scope.user.email);
+               fd.append('phonenumber', $scope.user.phonenumber);
+               fd.append('title', $scope.user.title);
+               fd.append('birthday', $scope.user.birthday);
+               fd.append('sex', $scope.user.sex);
+               fd.append('experience', $scope.user.experience);
+               fd.append('truelab', $scope.user.truelab);
+ $http({ 
+ method: 'POST',
+ url: '/api/MemberProfile_UPDATE',
+ headers: {
+  'Content-Type':undefined
+ },
+ transformRequest: angular.identity,
+ data:fd
+
+})
+.then(function(response) {
+   
+  console.log(response.data);
+    if (response.data.data == "ลงทะเบียนสำเร็จ"){
+        
+        location.href = '/memberboard'
+      }
+
+    });
+
+}  
+
+});
+
+
+    
+  </script>
+
+</body>

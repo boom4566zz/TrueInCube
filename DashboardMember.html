@@ -1,0 +1,145 @@
+
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+<link rel="stylesheet" href="css/custom_style.css">
+<!doctype html>
+<html lang="en">
+
+<head>
+<title> Dashboad</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+
+
+</head>
+
+<body>
+<nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top " id="mainNav" style="background-color: #000000;">
+  <div ng-app="myApp" ng-controller="formCtrl" class="container">
+      <a class="navbar-brand js-scroll" href="/"><img height="30px" src="https://www.trueincube.com/assets/images/incube-logo.png"></a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+        aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
+        <ul class="navbar-nav">
+  
+          <li class="nav-item">
+            <a  class="nav-link js-scroll " href="#"> <img height="30px" src="images/mail2.png"></a>
+          </li>
+          
+          <div class="dropdown">
+    <a class="nav-link js-scroll"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img style="border-radius: 50%;" height="30px" width="30px" ng-src="{{avatar}}" alt="Avatar">
+    
+  </a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="MemberProfile">Proflie</a>
+      <a class="dropdown-item" href="changePassword">Change password</a>
+      <a class="dropdown-item" ng-click="destroy()" >Logout</a>
+    </div>
+  </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+<div class="wrapper d-flex align-items-stretch">
+  <nav style="margin-top: 50px" id="sidebar">
+    <div class="p-4 pt-5">
+
+      <ul class="list-unstyled components mb-5">
+
+
+        <li>
+          <a href="#">Dashboard</a>
+        </li>
+
+        <li>
+          <a href="MemberStartupProfile">Startup</a>
+        </li>
+
+        <li>
+          <a href="#">Company</a>
+        </li>
+
+        <li>
+          <a href="#">Terms</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Content  -->
+  <div style="margin-top: 50px" id="content" class="p-4 p-md-5">
+
+    <h2 class="mb-4">Welcome to ...</h2>
+    <h6 class="mb-4">Timeline</h6>
+    <hr>
+    <p>please complete your <a href="MemberProfile">personal profile</a> and <a href="MemberStartupProfile">
+        startup profile </a></p>
+
+    <h6 class="mb-4">Overview</h6>
+    <hr>
+    <p>next activity : today</p>
+    <p>activity name : <a href="#"> click to complete your personal profile</a> </p>
+    <p>location : online</p>
+  </div>
+
+
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+
+</html>
+
+<script>
+var app = angular.module('myApp', []);
+
+app.controller('formCtrl', function($scope, $http) {
+  $scope.avatar = "images/M-placeholder-illustrations-vector2.jpg"
+  $scope.user = {}
+  $http({ 
+method: 'GET',
+url: '/api/get_MemberProfile_email',
+
+
+})
+
+  .then(function(req) {
+
+   $scope.avatar = req.data.avatar
+    
+  });
+
+  $scope.destroy = function() {  
+
+$http({ 
+method: 'POST',
+url: '/api/session_destroy',
+headers: {
+'Content-Type':undefined
+},
+transformRequest: angular.identity,
+data: null
+
+})
+.then(function(response) {
+ 
+
+  });
+
+}  
+
+});
+</script> 
